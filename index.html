@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda de turnos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Agenda de turnos</h1>
+  <p class="sub" id="sub"></p>
+
+  <div class="grid">
+    <!-- Sección izquierda: registrar turno -->
+    <section aria-labelledby="h-form">
+      <h2 id="h-form">Nuevo turno</h2>
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" maxlength="60" autocomplete="off" placeholder="Nombre y apellido del paciente">
+
+      <div class="row">
+        <div>
+          <label for="dia">Día</label>
+          <input id="dia" type="date">
+        </div>
+        <div>
+          <label for="hora">Horario</label>
+          <select id="hora"></select>
+        </div>
+      </div>
+      <p class="hint" id="hint"></p>
+
+      <label for="esp">Especialidad</label>
+      <select id="esp"></select>
+
+      <button class="primary" id="guardar" type="button">Cargar turno</button>
+      <div class="msg" id="msg" role="status"></div>
+
+      <div class="ticket" id="ticket">
+        <b>TICKET</b>
+        <p id="tk1"></p>
+        <p id="tk2"></p>
+        <p id="tk3"></p>
+      </div>
+
+      <details class="cfg">
+        <summary>Horario del consultorio</summary>
+        <div class="row">
+          <div>
+            <label for="open">Abre</label>
+            <input id="open" type="time" step="1800">
+          </div>
+          <div>
+            <label for="close">Cierra</label>
+            <input id="close" type="time" step="1800">
+          </div>
+        </div>
+        <p class="hint">Los turnos se dan cada 30 minutos. El último empieza 30 minutos antes del cierre.</p>
+        <button class="ghost" id="saveCfg" type="button">Guardar horario</button>
+        <div class="msg" id="cmsg" role="status"></div>
+      </details>
+    </section>
+
+    <!-- Sección derecha: panel de turnos -->
+    <section aria-labelledby="h-list">
+      <h2 id="h-list">Turnos asignados</h2>
+      <div id="lista"></div>
+    </section>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
